@@ -5,7 +5,11 @@ const mongoose = require('../db/connection');
 // make a new schema with 2 properties, and assign it to a variable
 const NoteSchema = new mongoose.Schema({
 	title: String,
-	note: String,
+    note: String,
+    owner: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+    }
 });
 
 // instantiate the model, calling it "Note" and with the schema we just made

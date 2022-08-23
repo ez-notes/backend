@@ -5,55 +5,55 @@ const express = require('express');
 // for the URLs + methods for this resource
 const router = express.Router();
 // import the bookmark model
-const Note = require('../models/Note');
+const User = require('../models/User');
 
 // Add routes to the router object
-// Index: GET all the notes
+// Index: GET all the users
 router.get('/', async (req, res, next) => {
 	try {
-		// 1. Get all of the notes from the DB
-		const notes = await Note.find({}).populate('owner');
+		// 1. Get all of the users from the DB
+		const users = await User.find({});
 		// 2. Send them back to the client as JSON
-		res.json(notes);
+		res.json(users);
 	} catch (err) {
 		// if there's an error, pass it on!
 		next(err);
 	}
 });
 
-// Show: Get a Notes by ID
+// Show: Get a Users by ID
 router.get('/:id', async (req, res, next) => {
 	try {
-		// 1. Find the Notes by its unique ID
-		const note = await Note.findById(req.params.id).populate('owner');
+		// 1. Find the Users by its unique ID
+		const user = await User.findById(req.params.id);
 		// 2. Send it back to the client as JSON
-		res.json(note);
+		res.json(user);
 	} catch (err) {
 		// if there's an error, pass it on!
 		next(err);
 	}
 });
 
-// Create: POST a Notes
+// Create: POST a Users
 router.post('/', async (req, res, next) => {
 	try {
-		// 1. Use the data in the req body to create a new notes
-		const newNote = await Note.create(req.body);
+		// 1. Use the data in the req body to create a new users
+		const newUser = await User.create(req.body);
 		// 2. If the create is successful, send back the record that was inserted, specifying 201 status for Created
-		res.status(201).json(newNote);
+		res.status(201).json(newUser);
 	} catch (err) {
 		// 3. If there was an error, pass it on!
 		next(err);
 	}
 });
 
-// UPDATE: PUT a Note
+// UPDATE: PUT a User
 router.put('/:id', async (req, res, next) => {
 	try {
-		// 1. Find the Note by its id, passing in two additional arguments:
+		// 1. Find the User by its id, passing in two additional arguments:
 		// the request body holds the updated information
 		// { new: true } returns the updated document instead of the old one
-		const noteToUpdate = await Note.findByIdAndUpdate(
+		const userToUpdate = await User.findByIdAndUpdate(
 			req.params.id,
 			req.body,
 			{
@@ -61,9 +61,9 @@ router.put('/:id', async (req, res, next) => {
 			}
 		);
 		// If a bookmark was found and operation successful
-		if (noteToUpdate) {
-			// send back updated note
-			res.json(noteToUpdate);
+		if (userToUpdate) {
+			// send back updated user
+			res.json(userToUpdate);
 		} else {
 			// else send back 404 Not Found
 			res.sendStatus(404);
@@ -73,16 +73,16 @@ router.put('/:id', async (req, res, next) => {
 	}
 });
 
-// Delete: DELETE a Note
+// Delete: DELETE a User
 router.delete('/:id', async (req, res, next) => {
 	try {
-		// 1. Find the Note by its id, passing in two additional arguments:
+		// 1. Find the User by its id, passing in two additional arguments:
 		// the request body holds the updated information
 		// { new: true } returns the updated document instead of the old one
-		const noteToDelete = await Note.findByIdAndDelete(req.params.id);
-		console.log(noteToDelete);
-		// If a note was found and operation successful
-		if (noteToDelete) {
+		const userToDelete = await User.findByIdAndDelete(req.params.id);
+		console.log(userToDelete);
+		// If a user was found and operation successful
+		if (userToDelete) {
 			// send back 204 No Content
 			res.sendStatus(204);
 		} else {
