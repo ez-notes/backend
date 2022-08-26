@@ -6,10 +6,7 @@ const mongoose = require('../db/connection');
 const NoteSchema = new mongoose.Schema({
 	title: String,
     note: String,
-    owner: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-    }
+    owner: String
 });
 
 // instantiate the model, calling it "Note" and with the schema we just made

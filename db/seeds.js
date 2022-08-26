@@ -7,7 +7,7 @@ const noteseeds = require('./seeds.json');
 Note.deleteMany({})
 	.then(() => User.deleteMany({}))
 	.then(() => {
-		return User.create({ email: 'fake@email.com', name: 'Fake Person' })
+		return User.create({name: 'Fake Person', password: 'password'})
 			.then((user) =>
 				noteseeds.map((note) => ({ ...note, owner: user._id }))
 			)

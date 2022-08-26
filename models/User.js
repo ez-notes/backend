@@ -4,8 +4,8 @@ const mongoose = require('../db/connection');
 
 // make a new schema with 2 properties, and assign it to a variable
 const UserSchema = new mongoose.Schema({
-	email: String,
 	name: String,
+	password: String,
 });
 
 // instantiate the model, calling it "Note" and with the schema we just made
