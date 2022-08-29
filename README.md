@@ -40,10 +40,10 @@ I built the application with a barebones skeleton, but as puzzles revealed thems
 
 I used Bootstrap to style the project while it was in progress, but found that bootstrap's stylings are a little basic, and so besides the card elements, all bootstrap was removed and either hand-styled in CSS or uses motion elements from framer/motion. 
 
-There are still some functions that I'd like to revisit to imporve functionality under the hood, but as these didn't affect MVP, I chose to leave them to further iterations, and leave future works to the sudowoodo file, where I kept my pseudocode throughout the project.
-
 [CLICK THIS LINK TO VISIT THE LIVE SITE](https://ez-notes.netlify.app/)
+
+[CLICK THIS LINK TO VISIT THE FRONTEND REPO](https://github.com/ez-notes/frontend)
 
 ## THE FUTURE ON EZ-Notes
 
-When I come back, I plan to break the Stats component down further, continue to dry-up my code, and add more coments. There's some data that I didn't get to put on the page because I have to learn more about navigating the API, but that's a stretch goal as I return an tweak the app.
+There are still some functions that I'd like to revisit to imporve functionality under the hood, but as these didn't affect MVP, I chose to leave them to further iterations, and leave future works to the sudowoodo file, where I kept my pseudocode throughout the project.
